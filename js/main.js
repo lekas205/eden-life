@@ -1,7 +1,7 @@
 "use strict"
 document.addEventListener("DOMContentLoaded", () => {
     // set cookie  for confetti video
-    document.cookie ="sameSite=None";
+    // document.cookie ="sameSite=None";
 
 
     let switchTab = document.getElementsByClassName('switch_tab_botton')
