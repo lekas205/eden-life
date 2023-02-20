@@ -77,12 +77,15 @@ main .header h4 {
     background-color: var(--theme-white) ;
 }
 
-
+main .page_container  {
+    margin-bottom: 100px;
+}
 main .page_container .banner {
     padding: 25px 15px;
     border-radius: 12px;
     position: relative;
     overflow: hidden;
+    z-index: 2;
     border: 5px solid #98DCAF;
     color: var(--theme-white);
     margin-top: var(--child-gap);
@@ -184,15 +187,14 @@ main .page_container .subscription_plans .card .details h6{
     font-weight: 500;
 }
 
-main .page_container .subscription_plans .card .details:nth-child(1){
+main .page_container .subscription_plans .card:nth-child(1) .details{
     border-bottom:  1px solid rgba(189, 238, 205, 0.5);;
 
 }
 
-main .page_container .subscription_plans .card .details:nth-child(2){
-    border: 1px solid rgba(255, 218, 159, 0.5);
+main .page_container .subscription_plans .card:nth-child(2) .details{
+    border-bottom: 1px solid rgba(255, 218, 159, 0.5);
 }
-
 
 
 main .page_container .subscription_plans .card .time{
@@ -210,7 +212,7 @@ main .page_container .subscription_plans .card .time p{
 
 
 
- .bottom-bar {
+ .navigation_bar {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -222,21 +224,28 @@ main .page_container .subscription_plans .card .time p{
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.bottom-bar a {
+.navigation_bar a {
     text-align: center;
     text-decoration: none;
-    color: #000;
+    color: #8AA398;
+    font-weight: 400;
     display: inline-block;
+}
+
+.navigation_bar a.active{
+    color: var(--theme-primary);
 }
 
 .modal_dialog{
     padding: 20px 0;
     background-color: #2b2b2b8b;
-    height: 100%;
+    height: 100vh;
     width: 100%;
     z-index: 10;
-    position: absolute;
+    position: fixed;
     top: 0;
+    display: none;
+   
 }
 
 .modal_dialog .modal_body{
@@ -244,6 +253,7 @@ main .page_container .subscription_plans .card .time p{
     width: 100%;
     padding: 0 20px;
     position: absolute;
+    animation: animatetop .50s ease-in-out;
    
 }
 
@@ -252,7 +262,10 @@ main .page_container .subscription_plans .card .time p{
     width: 100%;
     border-radius: 16px;
     padding: 25px;
+    position: relative;
+    z-index: 3;
     background: var(--theme-white);
+   
 }
 
 .modal_dialog .modal_body .container .head{
@@ -295,11 +308,20 @@ main .page_container .subscription_plans .card .time p{
     color: var(--theme-dark);
 }
 
-.modal_dialog .modal_body .container .address {
-    padding: 12px;
+.modal_dialog .modal_body .container .post{
     border-radius: 8px;
     border: 1px dashed #CBD8D2;
     margin-top: var(--child-gap);
+}
+
+.modal_dialog .modal_body .container .post .agent {
+    border-top: 1px dashed #CBD8D2;
+}
+
+.modal_dialog .modal_body .container .post .address,
+.modal_dialog .modal_body .container .post .agent  {
+    padding: 12px;
+   
 }
 
 .modal_dialog .modal_body .container .address  p{
@@ -324,7 +346,7 @@ main .page_container .subscription_plans .card .time p{
 
 .modal_dialog .modal_body .container .activities ul li {
     border-left: 1px dashed var(--theme-primary);
-    padding-left: 20px;
+    padding: 0 0 20px 20px;
     margin-bottom: 20px;
     position: relative;
 }
@@ -370,3 +392,15 @@ main .page_container .subscription_plans .card .time p{
     line-height: 1.5;
     color: #4B6358;
 }
+
+
+
+@-webkit-keyframes animatetop {
+    from {bottom:-100vh; opacity:0} 
+    to {bottom:50px; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {bottom:-100vh; opacity:0}
+    to {bottom:50px; opacity:1}
+  }
