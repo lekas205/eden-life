@@ -23,6 +23,8 @@ body {
 main {
     padding: 20px;
     position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 main .header {
@@ -114,10 +116,16 @@ main .page_container .banner img{
     bottom: -40px;
 }
 
+main .page_container .subscription_plans{
+    display: flex;
+    gap: var(--child-gap);
+    margin-top: var(--child-gap);
+}
+
 main .page_container .subscription_plans .card{
     padding: 16px;
     border-radius: 8px;
-    margin-top: var(--child-gap);
+    max-width: 340px;
 }
 
 main .page_container .subscription_plans .card .title{
@@ -139,6 +147,7 @@ main .page_container .subscription_plans .card .title button {
     align-items: center;
     padding: 8px 15px ;
     border-radius: 20px;
+    cursor: pointer;
 }
 
 main .page_container .subscription_plans .card:nth-child(1){
@@ -225,6 +234,7 @@ main .page_container .subscription_plans .card .time p{
     width: 100%;
     display: flex;
     padding: 10px 20px;
+    display: none;
     justify-content: space-between;
     align-items: flex-end;
     background-color: var(--theme-white);
@@ -398,6 +408,24 @@ main .page_container .subscription_plans .card .time p{
     font-size: 14px;
     line-height: 1.5;
     color: #4B6358;
+}
+
+
+@media screen and (max-width: 768px) {
+    .navigation_bar{
+        display: flex;
+    }
+    
+    main .page_container .subscription_plans .card{
+        width: 100%;
+        max-width: none ;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    main .page_container .subscription_plans{
+        flex-direction: column;
+    }
 }
 
 
