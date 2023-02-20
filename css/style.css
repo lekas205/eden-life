@@ -4,7 +4,7 @@
     --theme-primary: #03A84E;
     --theme-white: #ffffff;
     /* margin gaps */
-    --section-gap: 40px;
+    --section-gap: 30px;
     --child-gap: 24px;
     /* font-sizes */
     --title-size: 20px;
@@ -69,11 +69,15 @@ main .header h4 {
     padding: 10px;
     cursor: pointer;
     width: 50%;
+    color: #4B6358;
     text-align: center;
     border-radius: 8px;
+    transition: all .40s linear;
 }
 
  main .switch_tab p.active{
+    color: var(--theme-dark);
+    font-weight: 500;
     background-color: var(--theme-white) ;
 }
 
@@ -131,7 +135,9 @@ main .page_container .subscription_plans .card .title h5{
 main .page_container .subscription_plans .card .title button {
     border: none;
     margin-left: auto;
-    padding: 10px 8px;
+    display: flex;
+    align-items: center;
+    padding: 8px 15px ;
     border-radius: 20px;
 }
 
@@ -185,6 +191,7 @@ main .page_container .subscription_plans .card .details img{
 main .page_container .subscription_plans .card .details h6{
     font-size: 14px;
     font-weight: 500;
+    margin-top: 5px;
 }
 
 main .page_container .subscription_plans .card:nth-child(1) .details{
