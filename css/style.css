@@ -32,7 +32,7 @@ main .header {
     display: flex;
     align-items: center;
     position: sticky;
-    z-index: 5px;
+    z-index: 5;
     padding: 10px 0;
     background-color: var(--theme-white);
 
