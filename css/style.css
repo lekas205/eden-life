@@ -4,7 +4,7 @@
     --theme-primary: #03A84E;
     --theme-white: #ffffff;
     /* margin gaps */
-    --section-gap: 40px;
+    --section-gap: 30px;
     --child-gap: 24px;
     /* font-sizes */
     --title-size: 20px;
@@ -26,8 +26,13 @@ main {
 }
 
 main .header {
+    top: 0;
     display: flex;
     align-items: center;
+    position: sticky;
+    z-index: 5px;
+    padding: 10px 0;
+    background-color: var(--theme-white);
 
 }
 
@@ -64,20 +69,27 @@ main .header h4 {
     padding: 10px;
     cursor: pointer;
     width: 50%;
+    color: #4B6358;
     text-align: center;
     border-radius: 8px;
+    transition: all .40s linear;
 }
 
  main .switch_tab p.active{
+    color: var(--theme-dark);
+    font-weight: 500;
     background-color: var(--theme-white) ;
 }
 
-
+main .page_container  {
+    margin-bottom: 100px;
+}
 main .page_container .banner {
     padding: 25px 15px;
     border-radius: 12px;
     position: relative;
     overflow: hidden;
+    z-index: 2;
     border: 5px solid #98DCAF;
     color: var(--theme-white);
     margin-top: var(--child-gap);
@@ -123,7 +135,9 @@ main .page_container .subscription_plans .card .title h5{
 main .page_container .subscription_plans .card .title button {
     border: none;
     margin-left: auto;
-    padding: 10px 8px;
+    display: flex;
+    align-items: center;
+    padding: 8px 15px ;
     border-radius: 20px;
 }
 
@@ -177,17 +191,17 @@ main .page_container .subscription_plans .card .details img{
 main .page_container .subscription_plans .card .details h6{
     font-size: 14px;
     font-weight: 500;
+    margin-top: 5px;
 }
 
-main .page_container .subscription_plans .card .details:nth-child(1){
+main .page_container .subscription_plans .card:nth-child(1) .details{
     border-bottom:  1px solid rgba(189, 238, 205, 0.5);;
 
 }
 
-main .page_container .subscription_plans .card .details:nth-child(2){
-    border: 1px solid rgba(255, 218, 159, 0.5);
+main .page_container .subscription_plans .card:nth-child(2) .details{
+    border-bottom: 1px solid rgba(255, 218, 159, 0.5);
 }
-
 
 
 main .page_container .subscription_plans .card .time{
@@ -205,7 +219,7 @@ main .page_container .subscription_plans .card .time p{
 
 
 
- .bottom-bar {
+ .navigation_bar {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -213,34 +227,187 @@ main .page_container .subscription_plans .card .time p{
     padding: 10px 20px;
     justify-content: space-between;
     align-items: flex-end;
+    background-color: var(--theme-white);
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.bottom-bar a {
+.navigation_bar a {
     text-align: center;
     text-decoration: none;
-    color: #000;
+    color: #8AA398;
+    font-weight: 400;
     display: inline-block;
 }
 
-.modal{
-    padding: 20px;
+.navigation_bar a.active{
+    color: var(--theme-primary);
 }
 
-.modal .items{
+.modal_dialog{
+    padding: 20px 0;
+    background-color: #2b2b2b8b;
+    height: 100vh;
+    width: 100%;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    display: none;
+   
+}
+
+.modal_dialog .modal_body{
+    bottom: 50px;
+    width: 100%;
+    padding: 0 20px;
+    position: absolute;
+    animation: animatetop .50s ease-in-out;
+   
+}
+
+.modal_dialog .modal_body .container{
+    min-height: 70vh;
+    width: 100%;
+    border-radius: 16px;
+    padding: 25px;
+    position: relative;
+    z-index: 3;
+    background: var(--theme-white);
+   
+}
+
+.modal_dialog .modal_body .container .head{
     display: flex;
-    gap: 18px;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 25px;
+}
+
+
+.modal_dialog .modal_body .container .head button{
+    background: none;
+    border:none;
+   
+}
+
+.modal_dialog .modal_body .container .order_status {
+    display: flex;
     align-items: center;
 }
 
-.modal .items h3{
-    font-size: 19px;
-    font-weight: 20;
+.modal_dialog .modal_body .container .order_status img{
+    width: 50px;
 }
 
-.modal  .items img{
-    width: 70px;
-    height: 70px;
-    border-radius: 16px;
-    object-fit: cover;
+.modal_dialog .modal_body .container label{
+    font-size: 12px;
+    color: #4B6358;
+    text-transform: capitalize;
 }
+
+.modal_dialog .modal_body .container .order_status .status{
+    margin-left: 10px;
+}
+
+.modal_dialog .modal_body .container .order_status .status h5{
+    font-size: 18px;
+    margin-top: 5px;
+    font-weight: 500;
+    color: var(--theme-dark);
+}
+
+.modal_dialog .modal_body .container .post{
+    border-radius: 8px;
+    border: 1px dashed #CBD8D2;
+    margin-top: var(--child-gap);
+}
+
+.modal_dialog .modal_body .container .post .agent {
+    border-top: 1px dashed #CBD8D2;
+}
+
+.modal_dialog .modal_body .container .post .address,
+.modal_dialog .modal_body .container .post .agent  {
+    padding: 12px;
+   
+}
+
+.modal_dialog .modal_body .container .address  p{
+    font-size: 14px;
+    color: #4B6358;
+    margin-top: 6px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.modal_dialog .modal_body .container .activities {
+    margin-top: var(--child-gap);
+}
+.modal_dialog .modal_body .container .activities ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    list-style-position:inside
+   
+   
+}
+
+.modal_dialog .modal_body .container .activities ul li {
+    border-left: 1px dashed var(--theme-primary);
+    padding: 0 0 20px 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.modal_dialog .modal_body .container .activities ul li::before{
+    content: url('../assets/svg/checked-icon.svg');
+    position: absolute;
+    top: 0;
+    left: -7px;
+    height: 23px;
+    background-color: var(--theme-white);
+}
+
+.modal_dialog .modal_body .container .activities ul li.delivered::before{
+    content: url('../assets/svg/circle-icon.svg');
+    position: absolute;
+    top: 0;
+    left: -8px;
+    height: 23px;
+    background-color: var(--theme-white);
+}
+
+.modal_dialog .modal_body .container .activities ul li .title{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    justify-content: space-between;
+}
+
+.modal_dialog .modal_body .container .activities ul li .title h4{
+    font-size: 16px;
+    font-weight: 500;
+    color: #0F241B;;
+}
+
+.modal_dialog .modal_body .container .activities ul li .title small{
+    color: #4B6358;
+    font-size: 12px;
+}
+
+.modal_dialog .modal_body .container .activities ul li  p{
+    font-size: 14px;
+    line-height: 1.5;
+    color: #4B6358;
+}
+
+
+
+@-webkit-keyframes animatetop {
+    from {bottom:-100vh; opacity:0} 
+    to {bottom:50px; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {bottom:-100vh; opacity:0}
+    to {bottom:50px; opacity:1}
+  }
